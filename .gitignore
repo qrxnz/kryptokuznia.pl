@@ -8,3 +8,9 @@ devenv.local.yaml
 
 # pre-commit
 .pre-commit-config.yaml
+
+# Node / Next.js
+node_modules/
+.next/
+.env*.local
+npm-debug.log*

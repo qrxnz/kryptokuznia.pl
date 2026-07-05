@@ -17,11 +17,11 @@ import { fmtPrice } from "@/lib/format";
 const REFRESH_INTERVAL_MS = 6 * 60 * 60 * 1000;
 
 const LEGEND = [
-  { label: "Very Cheap", color: "#0f3d2e" },
-  { label: "Cheap", color: "#1f6b3a" },
-  { label: "Fair Value", color: "#8a7a1f" },
-  { label: "Expensive", color: "#b5651d" },
-  { label: "Very Expensive", color: "#7f1d1d" },
+  { label: "Bardzo tanio", color: "#0f3d2e" },
+  { label: "Tanio", color: "#1f6b3a" },
+  { label: "Wartość godziwa", color: "#8a7a1f" },
+  { label: "Drogo", color: "#b5651d" },
+  { label: "Bardzo drogo", color: "#7f1d1d" },
 ] as const;
 
 function yearTick(ts: number): string {

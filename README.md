@@ -26,9 +26,11 @@
 - global market cap and BTC dominance
 - Fear & Greed Index gauge
 - ATH (all-time high) card for tracked assets
+- BTC valuation chart — price vs. 200-week moving average with Very Cheap / Cheap / Fair Value / Expensive / Very Expensive zones, built on weekly Binance candles
 - background auto-refresh every 60 seconds
 - independent fetching per source (`Promise.allSettled`) — one API failing doesn't take down the rest of the dashboard
 - `GET /api/dashboard` endpoint returning the aggregated data as JSON
+- `GET /api/bitcoin-valuation` endpoint returning the 200-week MA valuation series as JSON
 
 ## 📋 Requirements
 
@@ -68,7 +70,7 @@ The app starts on [http://localhost:3000](http://localhost:3000).
 
 ## 🗂️ Data Sources
 
-- [Binance API](https://binance-docs.github.io/apidocs/) — BTC/USDT price and volume
+- [Binance API](https://binance-docs.github.io/apidocs/) — BTC/USDT price, volume, and weekly candles for the 200W MA valuation chart
 - [CoinGecko API](https://www.coingecko.com/en/api) — market and global data
 - [Alternative.me](https://alternative.me/crypto/fear-and-greed-index/) — Fear & Greed Index
 

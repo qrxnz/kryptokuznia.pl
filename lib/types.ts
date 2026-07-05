@@ -54,3 +54,22 @@ export interface DashboardData {
   errors: Record<string, string>;
   fetchedAt: string;
 }
+
+export interface BitcoinValuationPoint {
+  ts: number;
+  price: number;
+  ma200w: number;
+}
+
+export interface BitcoinValuationData {
+  points: BitcoinValuationPoint[];
+  currentPrice: number;
+  currentMA: number;
+  bands: {
+    veryCheap: number;
+    cheap: number;
+    fair: number;
+    expensive: number;
+  };
+  fetchedAt: string;
+}

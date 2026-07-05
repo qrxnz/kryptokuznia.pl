@@ -1,16 +1,25 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import type { DashboardData } from "@/lib/types";
+import type { BitcoinValuationData, DashboardData } from "@/lib/types";
 import { BinanceCard } from "./BinanceCard";
 import { MarketTable } from "./MarketTable";
 import { GlobalMarketCard } from "./GlobalMarketCard";
 import { FearGreedGauge } from "./FearGreedGauge";
 import { AthCard } from "./AthCard";
+import { BitcoinValuationChart } from "./BitcoinValuationChart";
 
 const REFRESH_INTERVAL_MS = 60_000;
 
-export function Dashboard({ initialData }: { initialData: DashboardData }) {
+export function Dashboard({
+  initialData,
+  initialValuation,
+  initialValuationError,
+}: {
+  initialData: DashboardData;
+  initialValuation: BitcoinValuationData | null;
+  initialValuationError?: string;
+}) {
   const [data, setData] = useState(initialData);
   const [isRefreshing, setIsRefreshing] = useState(false);
 
@@ -49,6 +58,12 @@ export function Dashboard({ initialData }: { initialData: DashboardData }) {
         />
         <FearGreedGauge fearGreed={data.fearGreed} error={data.errors.feargreed} />
         <AthCard markets={data.coingecko} />
+        <div className="md:col-span-2">
+          <BitcoinValuationChart
+            initialData={initialValuation}
+            initialError={initialValuationError}
+          />
+        </div>
         <div className="md:col-span-2">
           <MarketTable markets={data.coingecko} error={data.errors.coingecko} />
         </div>
